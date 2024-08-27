@@ -12,20 +12,18 @@ repositories {
 }
 
 dependencies {
-    // JUnit 5 for testing
+
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-
-    // RESTEasy Reactive with Jackson for JSON handling
-    implementation 'io.quarkus:quarkus-resteasy-reactive-jackson:3.0.0.Final'
-
-    // Other Quarkus dependencies
-    implementation 'io.quarkus:quarkus-rest-client:3.0.0.Final'
-    implementation 'io.quarkus:quarkus-smallrye-openapi:3.0.0.Final'
-    implementation 'io.quarkus:quarkus-arc:3.0.0.Final'
+    implementation 'io.quarkus:quarkus-resteasy-reactive-jackson:3.1.0.Final'
+    implementation 'io.quarkus:quarkus-rest-client:3.1.0.Final'
+    implementation 'io.quarkus:quarkus-smallrye-openapi:3.1.0.Final'
+    implementation 'io.quarkus:quarkus-arc:3.1.0.Final'
+}
+configurations.all {
+    exclude group:"org.jboss:jandex:2.4.3.Final", module: "io.smallrye"
 }
 
-
 test {
-    useJUnitPlatform() // Use JUnit Platform for testing
+    useJUnitPlatform()
 }
