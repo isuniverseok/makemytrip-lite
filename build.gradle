@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'io.quarkus' version '3.1.0.Final'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    // JUnit 5 for testing
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // RESTEasy Reactive with Jackson for JSON handling
+    implementation 'io.quarkus:quarkus-resteasy-reactive-jackson:3.0.0.Final'
+
+    // Other Quarkus dependencies
+    implementation 'io.quarkus:quarkus-rest-client:3.0.0.Final'
+    implementation 'io.quarkus:quarkus-smallrye-openapi:3.0.0.Final'
+    implementation 'io.quarkus:quarkus-arc:3.0.0.Final'
+}
+
+
+test {
+    useJUnitPlatform() // Use JUnit Platform for testing
+}
